@@ -9,7 +9,7 @@ import category from './category'
 import product from './product'
 import vendor from './vendor'
 import productVariant from './productVariant'
-
+import banner from './banner'
 import localeString from './locale/String'
 import localeText from './locale/Text'
 import localeBlockContent from './locale/BlockContent'
@@ -26,6 +26,7 @@ export default createSchema({
     product,
     vendor,
     category,
+    banner,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
