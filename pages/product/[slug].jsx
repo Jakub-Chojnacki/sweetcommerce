@@ -24,7 +24,7 @@ const ProductDetails = ({ product, products,vendor }) => {
   <VStack  marginBottom={'6'} marginTop={['6','6','0']} align='left'>
      <Heading color='primary.orange' textTransform='uppercase' size='sm'>{vendor[0].title}</Heading>
      <Heading>{title}</Heading>
-     <Text fontSize='md' ><PortableText value={body?.en}/></Text>
+     <Flex py={6} fontSize={14} color='gray.500'><PortableText fontSize={4} value={body?.en}/></Flex>
      <Flex paddingY={{md:'6'}} color='neutral.dark'> 
       <Flex align='center' gap={6}>
         <Text fontSize='3xl' fontWeight='bold'>${price}</Text>
@@ -79,7 +79,6 @@ export const getStaticProps = async ({ params: { slug }}) => {
   const vendorQuery = `*[_type == "vendor" && _id=='${product.vendor._ref}']`
   const vendor = await client.fetch(vendorQuery)
 
-  console.log(product);
 
   return {
     props: { products, product,vendor}

@@ -1,15 +1,18 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Header from './Header'
+import {Container} from '@chakra-ui/react'
 import Sidenav from './Sidenav'
+import GeneralContext from '../../context/general-context'
 const Layout = ({children}) => {
+  const {showSideNav} = useContext(GeneralContext)
   return (
-    <React.Fragment>
+    <Container maxW={{sm:'100vw', md:'90vw', lg:'80vw', xl:'70vw'}} pBottom={6}>
       <Header/>
-  
+      {showSideNav && <Sidenav/>}
       <main>
         {children}
       </main>
-    </React.Fragment>
+    </Container>
   )
 }
 
