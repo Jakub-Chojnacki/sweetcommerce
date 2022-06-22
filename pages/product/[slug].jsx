@@ -19,10 +19,10 @@ const ProductDetails = ({ product, products,vendor }) => {
     // </div>
 
 <Flex p={12} direction={['column','column','row']} align='center' gap={{md:'12',lg:'16'}} marginY={{md:'6'}}>
-{/* <ProductTabs images={urlFor(images)} thumbnails={images}/> */}
-  <Image src={urlFor(images[0])}/>
+<ProductTabs images={images}/>
+  {/* <Image src={urlFor(images[0])} boxSize={['300px','300px','350px', '400px']}/> */}
   <VStack  marginBottom={'6'} marginTop={['6','6','0']} align='left'>
-     <Heading color='primary.orange' textTransform='uppercase' size='sm'>{vendor[0].title}</Heading>
+     <Heading color='pink.400' textTransform='uppercase' size='sm'>{vendor[0].title}</Heading>
      <Heading>{title}</Heading>
      <Flex py={6} fontSize={14} color='gray.500'><PortableText fontSize={4} value={body?.en}/></Flex>
      <Flex paddingY={{md:'6'}} color='neutral.dark'> 
@@ -37,7 +37,7 @@ const ProductDetails = ({ product, products,vendor }) => {
         <Text>3</Text>
         <AiOutlinePlus  cursor='pointer'/>
       </Flex>
-      <Button py={7} backgroundColor='primary.orange' color='white' gap={4}>
+      <Button py={7} backgroundColor='pink.400' color='white' gap={4}>
         <AiOutlineShoppingCart color='white'/>
         Add to cart
         </Button>

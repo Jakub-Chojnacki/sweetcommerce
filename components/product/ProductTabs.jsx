@@ -1,6 +1,8 @@
 import React from 'react'
-import { Tabs, TabList, TabPanels, Tab, TabPanel,Flex,Image,Box } from '@chakra-ui/react'
-const ProductTabs = ({images,thumbnails}) => {
+import { Tabs, TabList, TabPanels, Tab, TabPanel,Flex,Image,Box,Icon } from '@chakra-ui/react'
+import {BsChevronLeft,BsChevronRight} from 'react-icons/bs'
+import {urlFor } from '../../lib/client';
+const ProductTabs = ({images}) => {
    const [tabIndex, setTabIndex] = React.useState(0)
    const handleTabsChange = (index) => {
       setTabIndex(index)
@@ -25,18 +27,18 @@ const ProductTabs = ({images,thumbnails}) => {
     const panels = images.map((panel)=> {
       return (
          <TabPanel>
-            <Image  display={{md:'none'}} onClick={handlePrevious} p={4} background="white"  borderRadius="50%" position="absolute" left="25" top="50%" src="../images/icons/icon-previous.svg"/>
-               <Image   borderRadius={{md:'6px'}} src={panel}/>
-            <Image  display={{md:'none'}} onClick={handleNext} p={4} background="white"  borderRadius="50%"  right="25" top="50%" position="absolute" src="../images/icons/icon-next.svg"/>
+            <Icon as={BsChevronLeft}  display={{md:'none'}} onClick={handlePrevious} color='white' p={2} fontSize={32} background="pink.400"  borderRadius="50%" position="absolute" left="-25" top="50%"/>
+               <Image backgroundColor='#ebebeb' borderRadius='15px' height={{sm:'300px', md:'400px'}}  src={urlFor(panel)}/>
+            <Icon as={BsChevronRight} display={{md:'none'}} color='white' onClick={handleNext}  fontSize={32} p={2} background="pink.400"   borderRadius="50%"  right="-25" top="50%" position="absolute"/>
          </TabPanel>
          )
     })
 
-    const tabs = thumbnails.map((tab,index)=> {
+    const tabs = images.map((tab,index)=> {
       return (
          <Tab>
             <Box border="2px" borderColor={index === tabIndex ? "primary.orange":"transparent"} borderRadius={{md:'10px'}}> 
-             <Image opacity={index === tabIndex ? '35%' : "100%"} borderRadius={{md:'10px'}} src={tab}/>
+             <Image  opacity={index === tabIndex ? '35%' : "100%"} borderRadius={{md:'10px'}} src={urlFor(tab)}/>
             </Box>
          </Tab>
       )
