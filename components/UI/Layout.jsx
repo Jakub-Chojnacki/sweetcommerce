@@ -6,7 +6,7 @@ import GeneralContext from '../../context/general-context'
 const Layout = ({children}) => {
   const {showSideNav} = useContext(GeneralContext)
   return (
-    <Container maxW={{sm:'100vw', md:'90vw', lg:'80vw', xl:'70vw'}} pBottom={6}>
+    <Container maxW={{sm:'100vw', md:'90vw', lg:'80vw', xl:'70vw'}} paddingBottom={6}>
       <Header/>
       {showSideNav && <Sidenav/>}
       <main>

@@ -20,14 +20,13 @@ const ProductDetails = ({ product, products,vendor }) => {
 
 <Flex p={12} direction={['column','column','row']} align='center' gap={{md:'12',lg:'16'}} marginY={{md:'6'}}>
 <ProductTabs images={images}/>
-  {/* <Image src={urlFor(images[0])} boxSize={['300px','300px','350px', '400px']}/> */}
   <VStack  marginBottom={'6'} marginTop={['6','6','0']} align='left'>
      <Heading color='pink.400' textTransform='uppercase' size='sm'>{vendor[0].title}</Heading>
      <Heading>{title}</Heading>
      <Flex py={6} fontSize={14} color='gray.500'><PortableText fontSize={4} value={body?.en}/></Flex>
      <Flex paddingY={{md:'6'}} color='neutral.dark'> 
       <Flex align='center' gap={6}>
-        <Text fontSize='3xl' fontWeight='bold'>${price}</Text>
+        <Text fontSize='3xl' fontWeight='bold' color='pink.400'>${price}</Text>
         <Text>/ {grams} grams</Text>
       </Flex>
     </Flex>

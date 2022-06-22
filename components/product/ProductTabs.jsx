@@ -26,9 +26,9 @@ const ProductTabs = ({images}) => {
 
     const panels = images.map((panel)=> {
       return (
-         <TabPanel>
+         <TabPanel key={panel._key}>
             <Icon as={BsChevronLeft}  display={{md:'none'}} onClick={handlePrevious} color='white' p={2} fontSize={32} background="pink.400"  borderRadius="50%" position="absolute" left="-25" top="50%"/>
-               <Image backgroundColor='#ebebeb' borderRadius='15px' height={{sm:'300px', md:'400px'}}  src={urlFor(panel)}/>
+               <Image minW={['200px','250px','300px','400px']} backgroundColor='#ebebeb' borderRadius='15px' height={{sm:'300px', md:'400px'}}  src={urlFor(panel)}/>
             <Icon as={BsChevronRight} display={{md:'none'}} color='white' onClick={handleNext}  fontSize={32} p={2} background="pink.400"   borderRadius="50%"  right="-25" top="50%" position="absolute"/>
          </TabPanel>
          )
@@ -36,9 +36,9 @@ const ProductTabs = ({images}) => {
 
     const tabs = images.map((tab,index)=> {
       return (
-         <Tab>
-            <Box border="2px" borderColor={index === tabIndex ? "primary.orange":"transparent"} borderRadius={{md:'10px'}}> 
-             <Image  opacity={index === tabIndex ? '35%' : "100%"} borderRadius={{md:'10px'}} src={urlFor(tab)}/>
+         <Tab key={tab._key}>
+            <Box  border="2px" borderColor={index === tabIndex ? "primary.orange":"transparent"} borderRadius={{md:'10px'}}> 
+              <Image opacity={index === tabIndex ? '35%' : "100%"} borderRadius={{md:'10px'}} src={urlFor(tab)}/>
             </Box>
          </Tab>
       )
@@ -50,9 +50,9 @@ const ProductTabs = ({images}) => {
       <TabPanels position="relative">
        {panels}
       </TabPanels>
-      <TabList display={['none','none','flex']}>
+     {images.length > 1 && <TabList display={['none','none','flex']}>
        {tabs}
-      </TabList>  
+      </TabList>  }
     </Tabs>
    </Flex>
   )
