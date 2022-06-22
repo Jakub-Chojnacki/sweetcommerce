@@ -1,11 +1,15 @@
 import React from 'react'
 import Header from './Header'
+import Sidenav from './Sidenav'
 const Layout = ({children}) => {
   return (
-    <>
-    <Header/>
-    {children}
-    </>
+    <React.Fragment>
+      <Header/>
+  
+      <main>
+        {children}
+      </main>
+    </React.Fragment>
   )
 }
 

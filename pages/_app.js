@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { ChakraProvider } from '@chakra-ui/react'
+import {GeneralProvider} from '../context/general-context'
 import Layout from '../components/UI/Layout'
 import { extendTheme } from '@chakra-ui/react'
 function MyApp({ Component, pageProps }) {
@@ -41,11 +42,13 @@ function MyApp({ Component, pageProps }) {
   
   const theme = extendTheme({ colors,fonts,components })
   return (
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ChakraProvider>)
+    <GeneralProvider>
+      <ChakraProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
+    </GeneralProvider>)
 }
 
 export default MyApp
