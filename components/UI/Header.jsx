@@ -24,7 +24,7 @@ const Header = () => {
           <Link href='/'>Contact</Link>
         </Flex>
       </Flex>
-        <AiOutlineShoppingCart />
+        <Icon as={AiOutlineShoppingCart} cursor='pointer' fontSize={24}/>
     </Flex>
   )
 }
