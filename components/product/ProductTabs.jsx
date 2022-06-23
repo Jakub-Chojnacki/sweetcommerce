@@ -57,9 +57,9 @@ const ProductTabs = ({images}) => {
       <TabPanels position="relative">
        {panels}
       </TabPanels>
-     {images.length > 0 && <TabList display={['none','none','grid']}  gridTemplateColumns={`repeat(${images.length}, 1fr)`}>
+      <TabList display={['none','none','grid']}  gridTemplateColumns={`repeat(${images.length}, 1fr)`}>
        {tabs}
-      </TabList>  }
+      </TabList>  
     </Tabs>
    </Flex>
   )

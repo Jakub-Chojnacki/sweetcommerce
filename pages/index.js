@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import  {client} from '../lib/client'
+import ProductsGrid from '../components/product/ProductsGrid'
 export default function Home({products,bannerData}) {
   return (
     <div className={styles.container}>
@@ -12,6 +13,7 @@ export default function Home({products,bannerData}) {
     
       <main className={styles.main}>
         Hi there
+        <ProductsGrid headingText={'Buy something sweet:'} items={products}/>
       </main>
 
   

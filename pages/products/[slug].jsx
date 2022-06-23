@@ -19,7 +19,7 @@ const ProductDetails = ({ product,vendor,newestSix }) => {
     // </div>
 <Flex direction="column">
   <Flex p={12} direction={['column','column','row']} align='center' gap={{md:'12',lg:'16'}} marginY={{md:'6'}}>
-    <ProductTabs images={images}/>
+    <ProductTabs  images={images}/>
     <VStack  marginBottom={'6'} marginTop={['6','6','0']} align='left'>
       <Heading color='pink.400' textTransform='uppercase' size='sm'>{vendor[0].title}</Heading>
       <Heading>{title}</Heading>
@@ -43,7 +43,7 @@ const ProductDetails = ({ product,vendor,newestSix }) => {
       </SimpleGrid> 
     </VStack>
   </Flex>
-  <ProductsGrid items={newestSix}/>
+  <ProductsGrid headingText={'You may also like:'}  items={newestSix}/>
 </Flex>
   )
 }

@@ -2,11 +2,11 @@ import React from 'react'
 import {urlFor } from '../../lib/client';
 import { SimpleGrid,Flex,Heading,Image,Text } from '@chakra-ui/react'
 import Link from 'next/link'
-const ProductsGrid = ({items}) => {
+const ProductsGrid = ({headingText,items}) => {
   console.log(items)
   return (
     <Flex direction='column' my={4} gap={8}>
-        <Heading color='pink.400'>You may also like:</Heading>
+        <Heading color='pink.400'>{headingText}</Heading>
         <SimpleGrid columns={['1','2','4','6']} align='center' >
            { items.map((item)=> {
                 return (
