@@ -10,7 +10,7 @@ const ProductsGrid = ({items}) => {
         <SimpleGrid columns={['1','2','4','6']} align='center' >
            { items.map((item)=> {
                 return (
-                <Link key={item.slug.current} href={`/product/${item.slug.current}`}>
+                <Link key={item.slug.current} href={`/products/${item.slug.current}`}>
                     <Flex cursor='pointer' direction='column' gap={2} align='center' justify='center'>
                         <Image boxSize={24} src={urlFor(item.defaultProductVariant.images[0])}/>
                         <Text fontSize={12} fontWeight='bold'>{item.title}</Text>
