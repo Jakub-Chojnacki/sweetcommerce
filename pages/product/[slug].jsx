@@ -43,7 +43,7 @@ const ProductDetails = ({ product,vendor,newestSix }) => {
       </SimpleGrid> 
     </VStack>
   </Flex>
-  <ProductsGrid headingText={'You may also like:'}  items={newestSix}/>
+  <ProductsGrid columnsStyle={['1','2','4','6']} headingText={'You may also like:'}  items={newestSix}/>
 </Flex>
   )
 }

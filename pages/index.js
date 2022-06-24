@@ -13,7 +13,7 @@ export default function Home({products,bannerData}) {
     
       <main className={styles.main}>
         Hi there
-        <ProductsGrid headingText={'Buy something sweet:'} items={products}/>
+        <ProductsGrid columnsStyle={['1','2','4','6']} headingText={'Buy something sweet:'} items={products}/>
       </main>
 
   

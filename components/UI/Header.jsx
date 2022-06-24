@@ -19,7 +19,7 @@ const Header = () => {
         <Flex align="center" display={['none','none','flex']}  gap={6} marginX={10}>
           <Link href='/'>Link 1</Link>
           <Link href='/'>Link 2</Link>
-          <Link href="/">Link 3</Link>
+          <Link href="/products/1">Products</Link>
           <Link href='/'>About</Link>
           <Link href='/'>Contact</Link>
         </Flex>
