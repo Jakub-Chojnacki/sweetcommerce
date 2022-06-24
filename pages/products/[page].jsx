@@ -3,7 +3,7 @@ import ProductsGrid from '../../components/product/ProductsGrid'
 import  {client} from '../../lib/client'
 
 const Products = ({products}) => {
-  console.log(pageProd)
+  
   return (
     <div>
         <ProductsGrid columnsStyle={['1','2','4','5']} headingText={'All of our products:'} items={products}/>

@@ -3,7 +3,6 @@ import {urlFor } from '../../lib/client';
 import { SimpleGrid,Flex,Heading,Image,Text } from '@chakra-ui/react'
 import Link from 'next/link'
 const ProductsGrid = ({columnsStyle,headingText,items}) => {
-  console.log(items)
   return (
     <Flex direction='column' my={4} gap={8}>
         <Heading color='pink.400'>{headingText}</Heading>

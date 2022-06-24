@@ -4,7 +4,7 @@ import {AiOutlineMenu,AiOutlineShoppingCart} from 'react-icons/ai'
 import GeneralContext from '../../context/general-context'
 import Link from 'next/link'
 const Header = () => {
-  const {showSideNav,setShowSideNav} = useContext(GeneralContext)
+  const {setShowSideNav,setShowCart} = useContext(GeneralContext)
 
   return (
     <Flex borderBottom={{md:'1px'}} borderColor={{md:'neutral.light'}} px={4} py={[2,4,6]}  align="center" justify="space-between">
@@ -24,7 +24,7 @@ const Header = () => {
           <Link href='/'>Contact</Link>
         </Flex>
       </Flex>
-        <Icon as={AiOutlineShoppingCart} cursor='pointer' fontSize={24}/>
+        <Icon as={AiOutlineShoppingCart} onClick={()=> setShowCart(true)} cursor='pointer' fontSize={24}/>
     </Flex>
   )
 }
