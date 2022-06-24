@@ -6,7 +6,7 @@ import CartItem from './CartItem'
 const Cart = () => {
   const {showCart,setShowCart,cartItems} = useContext(GeneralContext)
   return (
-    <VStack zIndex='2' padding={8} backgroundColor='white' align="left" pos='absolute' right="0" top="0" h="100vh" w={['250px','300px','400px','500px']} >
+    <VStack zIndex='2' padding={8} backgroundColor='white' align="left" pos='absolute' right="0" top="0" h="100vh" w={['350px','350px','400px','500px']} >
        <Flex align="center" gap={2}>
         <Icon as={FiChevronLeft} cursor="pointer" onClick={()=> setShowCart(false)} boxSize="15px"/>
         <Text fontWeight='bold'>Your Cart</Text>
