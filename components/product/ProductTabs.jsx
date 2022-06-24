@@ -11,7 +11,6 @@ const ProductTabs = ({images}) => {
 
    const [tabIndex, setTabIndex] = useState(0)
    const handleTabsChange = (index) => {
-      console.log(index)
       setTabIndex(index)
     }
 

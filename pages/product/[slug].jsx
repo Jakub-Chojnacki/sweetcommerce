@@ -1,22 +1,16 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { client } from '../../lib/client';
 import {PortableText} from '@portabletext/react'
 import { SimpleGrid,VStack,Flex,Heading,Text,Button} from '@chakra-ui/react'
 import ProductTabs from '../../components/product/ProductTabs'
 import ProductsGrid from '../../components/product/ProductsGrid'
 import {AiOutlinePlus,AiOutlineMinus,AiOutlineShoppingCart} from 'react-icons/ai'
-const ProductDetails = ({ product,vendor,newestSix }) => {
+import GeneralContext from '../../context/general-context'
+const ProductDetails = ({ product,products,vendor,newestSix }) => {
   const {title,defaultProductVariant:{grams,price,images},tags,categories,body } = product;
+  const {cartItems,setCartItems} = useContext(GeneralContext)
   return (
-    // <div>
-    //     <img src={urlFor(images[0])}/>
-    //    This product is called {title}.It costs {price} for {grams} grams. The tag is {tags}, categories are  and vendor is {vendor.title}
-    //    <PortableText value={body?.en}/>
-    //   <div>
-    //     {vendor[0].title}
-    //     <img src={urlFor(vendor[0].logo)}/>
-    //   </div>
-    // </div>
+  
 <Flex direction="column">
   <Flex p={12} direction={['column','column','row']} align='center' gap={{md:'12',lg:'16'}} marginY={{md:'6'}}>
     <ProductTabs  images={images}/>
@@ -36,8 +30,8 @@ const ProductDetails = ({ product,vendor,newestSix }) => {
           <Text>3</Text>
           <AiOutlinePlus  cursor='pointer'/>
         </Flex>
-        <Button py={7} backgroundColor='pink.400' color='white' gap={4}>
-          <AiOutlineShoppingCart color='white'/>
+        <Button py={7} backgroundColor='pink.400' color='white' gap={4} onClick={()=> setCartItems(prev => [...prev,product])}>
+          <AiOutlineShoppingCart color='white' />
           Add to cart
           </Button>
       </SimpleGrid> 
