@@ -1,4 +1,4 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext,useState,useEffect} from 'react';
 import { client } from '../../lib/client';
 import {PortableText} from '@portabletext/react'
 import { SimpleGrid,VStack,Flex,Heading,Text,Button,Icon} from '@chakra-ui/react'
@@ -9,6 +9,11 @@ import GeneralContext from '../../context/general-context'
 const ProductDetails = ({ product,products,vendor,newestSix }) => {
   const {title,defaultProductVariant:{grams,price,images},tags,categories,body } = product;
   const {cartItems,setCartItems,onAdd} = useContext(GeneralContext)
+  const [qty,setQty] = useState(1)
+
+  useEffect(()=> {
+    setQty(1)
+ },[product])
 
   const incQty = () => {
     setQty(prev => prev + 1)
@@ -21,7 +26,7 @@ const ProductDetails = ({ product,products,vendor,newestSix }) => {
    
   }
 
-  const [qty,setQty] = useState(1)
+  
   return (
   
 <Flex direction="column">

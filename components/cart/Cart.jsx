@@ -4,7 +4,8 @@ import GeneralContext from '../../context/general-context'
 import {FiChevronLeft} from 'react-icons/fi'
 import CartItem from './CartItem'
 const Cart = () => {
-  const {showCart,setShowCart,cartItems,totalQuantities} = useContext(GeneralContext)
+  const {showCart,setShowCart,cartItems,totalQuantities,totalPrice} = useContext(GeneralContext)
+  console.log(cartItems)
   return (
     <VStack zIndex='2' padding={8} backgroundColor='white' align="left" pos='absolute' right="0" top="0" h="100vh" w={['350px','350px','400px','500px']} >
        <Flex align="center" gap={2}>
@@ -14,8 +15,12 @@ const Cart = () => {
        </Flex>
        <Flex direction='column' >
          {cartItems.map((item)=> {
-            return <CartItem product={item}/>
+            return <CartItem product={item} key={item._id}/>
          })}
+       </Flex>
+
+       <Flex>
+        Total price: ${totalPrice.toFixed(2)}
        </Flex>
         
         <Modal isOpen={showCart} >
