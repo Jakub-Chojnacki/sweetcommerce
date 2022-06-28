@@ -33,9 +33,9 @@ const ProductTabs = ({images}) => {
     const panels = images.map((panel)=> {
       return (
          <TabPanel key={panel._key}>
-            <Icon as={BsChevronLeft}  display={{md:'none'}} onClick={handlePrevious} color='white' p={2} fontSize={32} background="pink.400"  borderRadius="50%" position="absolute" left="-25" top="50%"/>
+            {images.length > 1 && <Icon as={BsChevronLeft}  display={{md:'none'}} onClick={handlePrevious} color='white' p={2} fontSize={32} background="pink.400"  borderRadius="50%" position="absolute" left="-25" top="50%"/>}
                <Image minW={['200px','250px','300px','400px']} backgroundColor='#ebebeb' borderRadius='15px' height={{sm:'300px', md:'400px'}} alt='product-photo' src={urlFor(panel)}/>
-            <Icon as={BsChevronRight} display={{md:'none'}} color='white' onClick={handleNext}  fontSize={32} p={2} background="pink.400"   borderRadius="50%"  right="-25" top="50%" position="absolute"/>
+            {images.length > 1 &&  <Icon as={BsChevronRight} display={{md:'none'}} color='white' onClick={handleNext}  fontSize={32} p={2} background="pink.400"   borderRadius="50%"  right="-25" top="50%" position="absolute"/>}
          </TabPanel>
          )
     })

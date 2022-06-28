@@ -11,7 +11,7 @@ const ProductsGrid = ({columnsStyle,headingText,items}) => {
                 return (
                 <Link key={item.slug.current} href={`/product/${item.slug.current}`}>
                     <Flex cursor='pointer' direction='column' gap={2} align='center' justify='center'>
-                        <Image boxSize={24} src={urlFor(item.defaultProductVariant.images[0])}/>
+                        <Image boxSize={32} src={urlFor(item.defaultProductVariant.images[0])}/>
                         <Text fontSize={12} fontWeight='bold'>{item.title}</Text>
                         <Text fontSize={12}>${item.defaultProductVariant.price}</Text>
                     </Flex>

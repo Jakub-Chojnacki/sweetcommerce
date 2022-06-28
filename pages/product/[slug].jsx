@@ -1,7 +1,7 @@
-import React,{useContext} from 'react';
+import React,{useContext,useState} from 'react';
 import { client } from '../../lib/client';
 import {PortableText} from '@portabletext/react'
-import { SimpleGrid,VStack,Flex,Heading,Text,Button} from '@chakra-ui/react'
+import { SimpleGrid,VStack,Flex,Heading,Text,Button,Icon} from '@chakra-ui/react'
 import ProductTabs from '../../components/product/ProductTabs'
 import ProductsGrid from '../../components/product/ProductsGrid'
 import {AiOutlinePlus,AiOutlineMinus,AiOutlineShoppingCart} from 'react-icons/ai'
@@ -9,6 +9,19 @@ import GeneralContext from '../../context/general-context'
 const ProductDetails = ({ product,products,vendor,newestSix }) => {
   const {title,defaultProductVariant:{grams,price,images},tags,categories,body } = product;
   const {cartItems,setCartItems} = useContext(GeneralContext)
+
+  const incQty = () => {
+    setQty(prev => prev + 1)
+  }
+
+  const decQty = () => {
+    if(qty > 1){
+      setQty(prev => prev - 1)
+    }
+   
+  }
+
+  const [qty,setQty] = useState(1)
   return (
   
 <Flex direction="column">
@@ -26,9 +39,9 @@ const ProductDetails = ({ product,products,vendor,newestSix }) => {
       </Flex>
       <SimpleGrid  columns={['1','1','2']} gap={['2','2','6']} >
         <Flex  borderRadius='4px' background='neutral.light' p={4} align='center' justify='space-between'>
-          <AiOutlineMinus cursor='pointer'/>
-          <Text>3</Text>
-          <AiOutlinePlus  cursor='pointer'/>
+         <Icon as={AiOutlineMinus} cursor='pointer' onClick={decQty}/>
+          <Text>{qty}</Text>
+         <Icon as={AiOutlinePlus} cursor='pointer' onClick={incQty}/>
         </Flex>
         <Button py={7} backgroundColor='pink.400' color='white' gap={4} onClick={()=> setCartItems(prev => [...prev,product])}>
           <AiOutlineShoppingCart color='white' />
