@@ -3,7 +3,7 @@ import {urlFor } from '../../lib/client';
 import {Flex,Text,Image,Icon} from '@chakra-ui/react'
 import {AiOutlineMinus,AiOutlinePlus,AiOutlineCloseCircle} from 'react-icons/ai'
 const CartItem = ({product}) => {
-  const {title,defaultProductVariant:{grams,price,images},tags,categories,body } = product;
+  const {title,defaultProductVariant:{grams,price,images},tags,categories,body,quantity } = product;
   return (
     <Flex justify="space-between" align="center" p={2}>
       <Image borderRadius='12px' padding={2} backgroundColor='#ebebeb' boxSize={['24','24','32','32']} src={urlFor(images[0])}/>
@@ -11,7 +11,7 @@ const CartItem = ({product}) => {
         <Text fontSize={14}>{title}</Text>
         <Flex  borderRadius='4px' background='neutral.light' p={1} align='center' justify='space-between' width={['60px','80px','80px','120px']}>
             <AiOutlineMinus cursor='pointer'/>
-            <Text>1</Text>
+            <Text>{quantity}</Text>
             <AiOutlinePlus  cursor='pointer'/>
           </Flex>
       </Flex>

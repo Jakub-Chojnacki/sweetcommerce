@@ -8,7 +8,7 @@ import {AiOutlinePlus,AiOutlineMinus,AiOutlineShoppingCart} from 'react-icons/ai
 import GeneralContext from '../../context/general-context'
 const ProductDetails = ({ product,products,vendor,newestSix }) => {
   const {title,defaultProductVariant:{grams,price,images},tags,categories,body } = product;
-  const {cartItems,setCartItems} = useContext(GeneralContext)
+  const {cartItems,setCartItems,onAdd} = useContext(GeneralContext)
 
   const incQty = () => {
     setQty(prev => prev + 1)
@@ -43,7 +43,7 @@ const ProductDetails = ({ product,products,vendor,newestSix }) => {
           <Text>{qty}</Text>
          <Icon as={AiOutlinePlus} cursor='pointer' onClick={incQty}/>
         </Flex>
-        <Button py={7} backgroundColor='pink.400' color='white' gap={4} onClick={()=> setCartItems(prev => [...prev,product])}>
+        <Button py={7} backgroundColor='pink.400' color='white' gap={4} onClick={() => onAdd(product, qty)}>
           <AiOutlineShoppingCart color='white' />
           Add to cart
           </Button>
